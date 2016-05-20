@@ -53,18 +53,10 @@
     </ul>	
    </nav>
    <nav id="dropdown" class="adaptiv default">
-    <a class="minilogo" href="index.html"><img src="images/minilogo.png" alt="" /></a>
-    <p class="dropdown-p"><img src="images/menu.png" alt="Menu" /></p>
+    <a class="minilogo" href="index.html"><img src="images/minilogo.png" alt="Logo" /></a>
+    <p class="dropdown-p"><img src="images/menu.png" alt="Menu" onclick="displayDropdown(1)"/></p>
 	<div class="dropdown-menu">
-     <ul class="dropdown-ul">
-	  <div class="close-li">
-       <li class="active nav1"><a href="#page_Onas">О нас</a></li>
-       <li class="nav2"><a class="close" href="#page_Vyveskiizpenoplasta">Вывески из пенопласта</a></li>
-       <li class="nav3"><a class="close" href="#page_Prazdnichnyidekor">Праздничный декор</a></li>
-       <li class="nav4"><a class="close" href="#page_Vashuyutnyidom">Ваш уютный дом</a></li>
-       <li class="nav5"><a class="close" href="#page_Kontakty">Контакты</a></li>
-	  </div>
-     </ul>
+     <div id="ajax-menu"></div>
 	</div>    	
    </nav>   
    <main>
@@ -163,7 +155,7 @@
         </div>		 
 	    <ul class="cell_contacts">
 	     <li><img src="images/lifecell.png" alt="" /></li>
-	     <li class="number_contacts">+380 63 630 26 11</li>	   
+	     <li class="number_contacts"><span id="ajax-telephone" onclick="displayPhone(1)">Показать телефон (кликните на текст)</span></li>
 	    </ul>
 	   </div>
        <div id="content-form">	    
@@ -191,7 +183,8 @@
    <script type="text/javascript" src="js/cufon-yui.js"></script>
    <script type="text/javascript" src="js/cufon-replace.js"></script>   
    <script type="text/javascript" src="js/menu.js"></script>
-   <script type="text/javascript" src="js/dropdown-menu.js"></script>
+   <script type="text/javascript" src="js/ajax-menu.js"></script>
+   <script type="text/javascript" src="js/ajax-telephone.js"></script>
    <script type="text/javascript" src="js/scroll.js"></script>
    <script type="text/javascript" src="js/scroll-adap.js"></script>
    <script type="text/javascript" src="js/smoothscroll.js"></script>   

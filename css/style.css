@@ -31,10 +31,6 @@
 			max-height: 30px;
 }
 
-		#dropdown ul.dropdown-ul, #dropdown div.dropdown-ul > ul {
-			display: none;
-}
-
 		#dropdown ul.dropdown-ul.dropdown-p-on, .dropdown-p {
 			display: inline-block;
 }

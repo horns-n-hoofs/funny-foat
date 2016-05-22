@@ -7,9 +7,7 @@
  */
 $display = $_REQUEST["display"];
 $list = "";
-if ($display == 0) {
-    $list = "";
-}else {
+if ($display == 1) {
 $list = "<ul style=\"display: inline-block\">
         <li class=\"active nav1\" onclick=\"displayDropdown(0)\"><a href=\"#page_Onas\">О нас</a></li>
         <li class=\"nav2\" onclick=\"displayDropdown(0)\"><a href=\"#page_Vyveskiizpenoplasta\">Вывески из пенопласта</a></li>
@@ -18,4 +16,4 @@ $list = "<ul style=\"display: inline-block\">
         <li class=\"nav5\" onclick=\"displayDropdown(0)\"><a href=\"#page_Kontakty\">Контакты</a></li>
       </ul>";
 }
-echo ($list=="")?" ":$list;
+echo $list;

@@ -155,15 +155,18 @@
         </div>		 
 	    <ul class="cell_contacts">
 	     <li><img src="images/lifecell.png" alt="" /></li>
-	     <li class="number_contacts"><span id="ajax-telephone" onclick="displayPhone(1)">Показать телефон (кликните на текст)</span></li>
+	     <li class="number_contacts">+380 63 630 26 11</li>
 	    </ul>
 	   </div>
        <div id="content-form">	    
-	    <form method="POST" id="feedback-form">
+	    <form method="POST" id="feedback-form" action="form_processor.php">
+			<!--on the fly verification to enable-->
          <p class="contacts_form">Ваше имя:</p>
          <input type="text" name="nameFF" required placeholder="Имя" x-autocompletetype="name">
          <p class="contacts_form">E-mail для связи:</p>
          <input type="email" name="contactFF" required placeholder="Адрес электронной почты" x-autocompletetype="email">
+         <p class="contacts_form">Телефон:</p>
+         <input type="tel" name="telFF" placeholder="(xxx)xxx-xx-xx" x-autocomplete="tel">
          <p class="contacts_form">Ваше сообщение:</p>
          <textarea name="messageFF" required rows="5"></textarea>
          <input type="submit" value="Отправить">
@@ -184,7 +187,6 @@
    <script type="text/javascript" src="js/cufon-replace.js"></script>   
    <script type="text/javascript" src="js/menu.js"></script>
    <script type="text/javascript" src="js/ajax-menu.js"></script>
-   <script type="text/javascript" src="js/ajax-telephone.js"></script>
    <script type="text/javascript" src="js/scroll.js"></script>
    <script type="text/javascript" src="js/scroll-adap.js"></script>
    <script type="text/javascript" src="js/smoothscroll.js"></script>   

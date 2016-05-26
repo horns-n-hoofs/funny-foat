@@ -11,7 +11,7 @@ function displayDropdown(display) {
         if(xmlhttp.readyState == 4 && xmlhttp.status == 200){
             document.getElementById("ajax-menu").innerHTML = xmlhttp.responseText;
         }
-    }
+    };
     xmlhttp.open("GET","dropdown_menu_display.php?display="+display,true);
     xmlhttp.send();
 }

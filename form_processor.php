@@ -28,10 +28,8 @@ $headers = "MIME-Version: 1.0\r\n"
     . "X-Mailer: PHP/" . phpversion();
 $subject = "=?utf-8?b?".base64_encode("Order from ".$name." - ".$email)."?=";
 $message = wordwrap($message."\r\nTel.: ".$tel."\r\nE-mail: ".$email."\r\nDate: ".strftime("%A, %d-%B-%G %T"),70,"\r\n");
-//$message = "=?utf-8?b?".base64_encode($message)."?=";
 
 if(mail($to, $subject, $message, $headers)){
     echo "success";
-}else{
-    echo "fail";
 }
+    

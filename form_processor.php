@@ -11,7 +11,26 @@
 function input_validator($data){
     return trim(stripslashes(htmlspecialchars($data)));
 }
-
+/**
+ * Returns error message if error occured, otherwise - empty string
+ */
+function attach_handler(){
+    if($isAttachPresent){
+        $target_file = basename($_FILES["fileToUpload"]["name"]);
+        $image_file_type = pathinfo($target_file, PATHINFO_EXTENSION);
+        if ($imageFileType != "jpg" && $imageFileType != "png" && $imageFileType != "jpeg" && $imageFileType != "gif") {
+            return "Sorry, only JPG, JPEG, PNG & GIF files are allowed.";
+        }
+        $check_format_size = getimagesize($_FILES["fileToUpload"]["tmp_name"]);
+        if (!$check_format_size){
+            return "File is not an image " . $check_format_size["mime"] . ".";
+        }
+        if($_FILES["fileToUpload"]["size"] > 2048000){//2 Mb
+            return "Too large file.";
+        }
+        //creating attachment
+    }
+}
 //data should be prevalidated on the fly
 
 $name = input_validator($_POST["nameFF"]);
@@ -23,10 +42,7 @@ if(isset($_POST["attachPic"]) && $_FILES["fileToUpload"]["name"] != ""){
     $isAttachPresent = true;
 }
 
-if($isAttachPresent){
-    //process attach
-    //check extention,imagesize - size up to 1MB, no bmp allowed
-}
+
 
 //hard to fix locale
 setlocale(LC_ALL, 'en_US');

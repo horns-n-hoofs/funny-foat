@@ -159,7 +159,7 @@
 	    </ul>
 	   </div>
        <div id="content-form">	    
-	    <form method="POST" id="feedback-form" action="form_processor.php">
+	    <form method="POST" id="feedback-form" action="form_processor.php" enctype="multipart/form-data">
 			<!--on the fly verification to enable-->
          <p class="contacts_form">Ваше имя:</p>
          <input type="text" name="nameFF" required placeholder="Имя" x-autocompletetype="name">
@@ -169,9 +169,8 @@
          <input type="tel" name="telFF" placeholder="(xxx)xxx-xx-xx" x-autocomplete="tel">
          <p class="contacts_form">Ваше сообщение:</p>
          <textarea name="messageFF" required rows="5"></textarea>
-         <p class="contacts_form">Прикрепить картинку:
+         <p class="contacts_form">Прикрепить картинку:</p>
               <input type="checkbox" name="attachPic" onchange="showAttachFileDialog(this.checked)"/>
-         </p>
          <div id="ajax-attachfile"></div>
          <input type="submit" value="Отправить">
         </form>

@@ -5,6 +5,9 @@
  * Date: 23.05.16
  * Time: 21:37
  */
+
+
+
 function input_validator($data){
     return trim(stripslashes(htmlspecialchars($data)));
 }
@@ -15,6 +18,15 @@ $name = input_validator($_POST["nameFF"]);
 $email = input_validator($_POST["contactFF"]);
 $tel = input_validator($_POST["telFF"]);
 $message = input_validator($_POST["messageFF"]);
+$isAttachPresent = false;
+if(isset($_POST["attachPic"]) && $_FILES["fileToUpload"]["name"] != ""){
+    $isAttachPresent = true;
+}
+
+if($isAttachPresent){
+    //process attach
+    //check extention,imagesize - size up to 1MB, no bmp allowed
+}
 
 //hard to fix locale
 setlocale(LC_ALL, 'en_US');

@@ -13,6 +13,6 @@ function showAttachFileDialog(isCheked){
             document.getElementById("ajax-attachfile").innerHTML = xmlhttp.responseText;
         }
     };
-    xmlhttp.open("GET","attachfile_controls_display.php?display="+isCheked,true);
+    xmlhttp.open("GET","php/attachfile_controls_display.php?display="+isCheked,true);
     xmlhttp.send();
 }

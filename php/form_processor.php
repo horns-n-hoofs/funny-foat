@@ -39,12 +39,18 @@ function input_validator($data){
 function compose_and_send_mail()
 {
     $name = input_validator($_POST["nameFF"]);
+    if($name == ""){
+        return "Введите Ваше имя";
+    }
     $email = input_validator($_POST["contactFF"]);
     if(!filter_var($email,FILTER_VALIDATE_EMAIL)){
         return "Неправильный email";
     }
     $tel = input_validator($_POST["telFF"]);
     $message = input_validator($_POST["messageFF"]);
+    if($message == ""){
+        return "Введите Ваше сообщение";
+    }
     $isAttachPresent = false;
     if (isset($_POST["attachPic"]) && $_FILES["fileToUpload"]["name"] != "") {
         $isAttachPresent = true;

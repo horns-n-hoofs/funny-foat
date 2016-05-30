@@ -17,7 +17,7 @@ function input_validator($data){
 $email = input_validator($_REQUEST["email"]);
 $output = "";
 if(!filter_var($email,FILTER_VALIDATE_EMAIL)){
-    $output = "Неправильный адрес";
+    $output = "Неправильный email";
 }
 
 echo $output;

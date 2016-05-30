@@ -40,6 +40,9 @@ function compose_and_send_mail()
 {
     $name = input_validator($_POST["nameFF"]);
     $email = input_validator($_POST["contactFF"]);
+    if(!filter_var($email,FILTER_VALIDATE_EMAIL)){
+        return "Неправильный email";
+    }
     $tel = input_validator($_POST["telFF"]);
     $message = input_validator($_POST["messageFF"]);
     $isAttachPresent = false;

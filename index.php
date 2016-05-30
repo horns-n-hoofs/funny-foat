@@ -175,7 +175,7 @@
          <input type="email" name="contactFF" required placeholder="Адрес электронной почты" onkeyup="checkEmail(this.value)" x-autocompletetype="email">
 			<span id="email"></span>
          <p class="contacts_form">Телефон: </p>
-         <input type="tel" name="telFF" placeholder="(012)123-45-67" x-autocomplete="tel">
+         <input type="tel" id="phone" name="telFF" placeholder="(012) 345-6789" x-autocomplete="tel">
          <p class="contacts_form">Ваше сообщение: <span class="error">* </span></p>
          <textarea name="messageFF" required rows="5"></textarea>
          <p class="contacts_form">Прикрепить картинку:
@@ -202,12 +202,25 @@
    <script type="text/javascript" src="js/ajax-menu.js"></script>
    <script type="text/javascript" src="js/ajaxAttachFile.js"></script>
    <script type="text/javascript" src="js/ajax-checkemail.js"></script>
+   <script type="text/javascript" src="js/jquery-maskedinput.js"></script>
    <script type="text/javascript" src="js/scroll.js"></script>
    <script type="text/javascript" src="js/scroll-adap.js"></script>
    <script type="text/javascript" src="js/smoothscroll.js"></script>   
    <script type="text/javascript" src="js/slider.js"></script>
    <script type="text/javascript" src="js/slider_options.js"></script>
    <script type="text/javascript" src="js/slideloaded.js"></script>
-   <script type="text/javascript" src="js/atooltip.jquery.js"></script>   
+   <script type="text/javascript" src="js/atooltip.jquery.js"></script>
+   <script type="text/javascript">
+	   jQuery(function($) {
+		   $.mask.definitions['~']='[+-]';
+		   $('#date').mask('99/99/9999',{placeholder:"mm/dd/yyyy"});
+		   $('#phone').mask('(999) 999-9999');
+		   $('#phoneext').mask("(999) 999-9999? x99999");
+		   $("#tin").mask("99-9999999");
+		   $("#ssn").mask("999-99-9999");
+		   $("#product").mask("a*-999-a999",{placeholder:" ",completed:function(){alert("You typed the following: "+this.val());}});
+		   $("#eyescript").mask("~9.99 ~9.99 999");
+	   });
+   </script>
   </body>
  </html> 

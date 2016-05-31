@@ -183,8 +183,8 @@
          <textarea name="messageFF" required rows="5"></textarea>
          <p class="contacts_form">Прикрепить картинку:
               <input type="checkbox" name="attachPic" onchange="showAttachFileDialog(this.checked)"/></p>
-			<span class="error"><?php echo $attach_error;?></span>
-			<span class="OK"><?php echo $attach_OK;?></span><br/>
+			<span class="error"><?php echo $attach_error; ?></span>
+			<span class="OK"><?php echo $attach_OK; ?></span><br/>
          <div id="ajax-attachfile"></div>
          <input type="submit" value="Отправить">
         </form>

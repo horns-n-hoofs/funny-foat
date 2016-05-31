@@ -114,7 +114,7 @@ function compose_and_send_mail()
     }
 
     if (mail($to, $subject, $body, $headers)) {
-        return $name." Ваше сообщение успешно отправлено!";
+        return "";
     }else{
         return "Произошла ошибка. Позвоните консультатну.";
     }

@@ -644,8 +644,12 @@ hr {
     text-indent: 0px;	
 }
 
-#feedback-form .error{
+#feedback-form span.error{
 	color: #d01d33;
+}
+
+#feedback-form span.OK{
+	color: #008200;
 }
 
 #feedback-form [required] {

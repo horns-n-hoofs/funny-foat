@@ -12,6 +12,6 @@ function displayDropdown(display) {
             document.getElementById("ajax-menu").innerHTML = xmlhttp.responseText;
         }
     };
-    xmlhttp.open("GET","dropdown_menu_display.php?display="+display,true);
+    xmlhttp.open("GET","php/dropdown_menu_display.php?display="+display,true);
     xmlhttp.send();
 }

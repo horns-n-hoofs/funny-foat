@@ -160,9 +160,12 @@
 	   </div>
 		  <?php
 		    require "php/form_processor.php";
-			$attach_error = "";
+			$attach_error = $attach_OK = "";
 		  	if($_SERVER["REQUEST_METHOD"]=="POST"){
 				$attach_error = compose_and_send_mail();
+				if(!$attach_error){
+					$attach_OK = "Ваше сообщение успешно отправлено!";
+				}
 			}
 		  ?>
        <div id="content-form">	    
@@ -180,7 +183,8 @@
          <textarea name="messageFF" required rows="5"></textarea>
          <p class="contacts_form">Прикрепить картинку:
               <input type="checkbox" name="attachPic" onchange="showAttachFileDialog(this.checked)"/></p>
-			<span class="error"><?php echo $attach_error;?></span><br/>
+			<span class="error"><?php echo $attach_error;?></span>
+			<span class="OK"><?php echo $attach_OK;?></span><br/>
          <div id="ajax-attachfile"></div>
          <input type="submit" value="Отправить">
         </form>

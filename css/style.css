@@ -644,6 +644,10 @@ hr {
     text-indent: 0px;	
 }
 
+#feedback-form .error{
+	color: #d01d33;
+}
+
 #feedback-form [required] {
 	width: 100%;
 	box-sizing: border-box;

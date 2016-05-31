@@ -26,7 +26,7 @@
     <div class="header">
 	 <header>
 	  <div class="logo">
-	   <a href="index.html"><img src="images/logo.png" alt="Funny Foat" /></a>
+	   <a href="index.php"><img src="images/logo.png" alt="Funny Foat" /></a>
 	  </div>
 	  <div class="header-r">
 	   <h1 class="text">Сделайте себе праздник вместе с нами!</h1>
@@ -53,7 +53,7 @@
     </ul>	
    </nav>
    <nav id="dropdown" class="adaptiv default">
-    <a class="minilogo" href="index.html"><img src="images/minilogo.png" alt="Logo" /></a>
+    <a class="minilogo" href="index.php"><img src="images/minilogo.png" alt="Logo" /></a>
     <p class="dropdown-p"><img src="images/menu.png" alt="Menu" onclick="displayDropdown(1)"/></p>
 	<div class="dropdown-menu">
      <div id="ajax-menu"></div>
@@ -158,19 +158,29 @@
 	     <li class="number_contacts">+380 63 630 26 11</li>
 	    </ul>
 	   </div>
+		  <?php
+		    require "php/form_processor.php";
+			$attach_error = "";
+		  	if($_SERVER["REQUEST_METHOD"]=="POST"){
+				$attach_error = compose_and_send_mail();
+			}
+		  ?>
        <div id="content-form">	    
-	    <form method="POST" id="feedback-form" action="form_processor.php" enctype="multipart/form-data">
+	    <form method="POST" id="feedback-form" action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"])?>#page_Kontakty" enctype="multipart/form-data">
 			<!--on the fly verification to enable-->
-         <p class="contacts_form">Ваше имя:</p>
+		<span class="error">* необходимые поля</span><br/>
+         <p class="contacts_form">Ваше имя: <span class="error">* </span></p>
          <input type="text" name="nameFF" required placeholder="Имя" x-autocompletetype="name">
-         <p class="contacts_form">E-mail для связи:</p>
-         <input type="email" name="contactFF" required placeholder="Адрес электронной почты" x-autocompletetype="email">
-         <p class="contacts_form">Телефон:</p>
-         <input type="tel" name="telFF" placeholder="(xxx)xxx-xx-xx" x-autocomplete="tel">
-         <p class="contacts_form">Ваше сообщение:</p>
+         <p class="contacts_form">E-mail для связи: <span class="error">* </span></p>
+         <input type="email" name="contactFF" required placeholder="Адрес электронной почты" onkeyup="checkEmail(this.value)" x-autocompletetype="email">
+			<span id="email"></span>
+         <p class="contacts_form">Телефон: </p>
+         <input type="tel" id="phone" name="telFF" placeholder="(012) 345-6789" x-autocomplete="tel">
+         <p class="contacts_form">Ваше сообщение: <span class="error">* </span></p>
          <textarea name="messageFF" required rows="5"></textarea>
-         <p class="contacts_form">Прикрепить картинку:</p>
-              <input type="checkbox" name="attachPic" onchange="showAttachFileDialog(this.checked)"/>
+         <p class="contacts_form">Прикрепить картинку:
+              <input type="checkbox" name="attachPic" onchange="showAttachFileDialog(this.checked)"/></p>
+			<span class="error"><?php echo $attach_error;?></span><br/>
          <div id="ajax-attachfile"></div>
          <input type="submit" value="Отправить">
         </form>
@@ -179,7 +189,7 @@
      </section>
 	</div>
 	<footer>
-	 <p>©<a href="index.html"> Funny Foat</a></p>
+	 <p>©<a href="index.php"> Funny Foat</a></p>
 	</footer>
    </main>
    <script type="text/javascript" src="js/jquery-1.4.3.min.js" ></script>   
@@ -191,12 +201,14 @@
    <script type="text/javascript" src="js/menu.js"></script>
    <script type="text/javascript" src="js/ajax-menu.js"></script>
    <script type="text/javascript" src="js/ajaxAttachFile.js"></script>
+   <script type="text/javascript" src="js/ajax-checkemail.js"></script>
+   <script type="text/javascript" src="js/jquery-maskedinput.js"></script>
    <script type="text/javascript" src="js/scroll.js"></script>
    <script type="text/javascript" src="js/scroll-adap.js"></script>
    <script type="text/javascript" src="js/smoothscroll.js"></script>   
    <script type="text/javascript" src="js/slider.js"></script>
    <script type="text/javascript" src="js/slider_options.js"></script>
    <script type="text/javascript" src="js/slideloaded.js"></script>
-   <script type="text/javascript" src="js/atooltip.jquery.js"></script>   
+   <script type="text/javascript" src="js/atooltip.jquery.js"></script>
   </body>
  </html> 
